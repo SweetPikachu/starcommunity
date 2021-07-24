@@ -8,12 +8,12 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class HelloController {
 
-    @GetMapping("/hello")
+    @GetMapping("/index")
     public String greeting(@RequestParam(name="zxname", required=false, defaultValue="World") String name,
                            @RequestParam(name="zxage", required=false, defaultValue="World") String age,Model model) {
         model.addAttribute("name", name);
         model.addAttribute("age", age);
-        return "greeting";
+        return "index";
     }
 
 }
