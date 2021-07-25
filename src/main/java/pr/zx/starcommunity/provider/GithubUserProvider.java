@@ -35,8 +35,10 @@ public class GithubUserProvider {
                 .build();
 
         try (Response response = client.newCall(request).execute()){
-            System.out.println(response.body().string());
-            GithubUserDTO githubUserDTO= JSON.parseObject(response.body().string(), GithubUserDTO.class);
+            String s1=response.body().string();
+//            System.out.println(response.body().string());//response.body().string()当下的流只能使用一次,就像流水这秒流的就会过去
+            System.out.println(s1);
+            GithubUserDTO githubUserDTO= JSON.parseObject(s1, GithubUserDTO.class);
             return  githubUserDTO;
             //return response.body().string();
         } catch (IOException e) {
